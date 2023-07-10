@@ -1,0 +1,59 @@
+em {
+    font-style: normal;
+    background-color: yellow;
+}
+
+#underline {
+    text-decoration: underline;
+}
+
+ol {
+    list-style:upper-roman
+}
+
+#centerh {
+    text-align: center;
+}
+
+.mainblock {
+    
+  
+}
+
+#redblock {
+    text-align: center;
+    border: 1px red solid;
+    color: red;
+    font-weight: bold;
+    width: 80%;
+}
+
+#tableblock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table {
+    width: 80%;
+
+}
+
+tr, th, td {
+    border: 1px black solid;
+}
+
+td {
+    padding: 10px 5px
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 70%;
+    border: solid 5px rgb(255, 128, 0);
+   
+}

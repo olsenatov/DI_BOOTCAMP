@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+h1 {
+    color: blueviolet;
+}
+
+/* p {
+    background-color: antiquewhite;
+} */
+
+table,
+tr,
+th,
+td {
+    border: 1px solid;
+    padding: 2px;
+}
+
+
+/* Sibling on the same level (brother) 
+div ~ p {
+    background-color: yellow;
+  }
+  */
+
+/* Direct CHILD 
+div > p {
+  background-color: yellow;
+}
+ */
+
+ /* 
+ ANY DESCENDENT (direct, grand etc)
+ div p {
+  background-color: yellow;
+}
+ */
+
+ /* ONLY THE CLOSE SIBLING (next to it)
+ div + p {
+  background-color: yellow;
+} */
+
+#blueli {
+    color: blue;
+}
+
+.allli1div {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.firstp {
+    color: white;
+    background-color: pink;
+} 
+
+.secondp {
+    background-color: lightblue;
+    padding: 5px;
+    margin: 10px;
+}
