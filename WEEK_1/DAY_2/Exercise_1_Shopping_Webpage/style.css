@@ -1,0 +1,183 @@
+body {
+    width: 100%;
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    min-height: fit-content;
+}
+
+
+navbar {
+    display: inline-block;
+    background-color: black;
+    width: 100%;
+    height: 25px;
+    color: white;
+    padding: 20px;
+}
+
+ul {
+    width: 100%;
+    height:25px;
+    position: fixed;
+    top: 0;
+    list-style-type: none;
+    margin: 10px;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+}
+
+li {
+    float: right;
+    font-weight: bold;
+    font-size: 15px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    right: 40px;
+  }
+  
+  i {
+    position: relative;
+    top: 5px;
+    
+  }
+
+  footer {
+    position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+
+  }
+
+  img {
+    max-width: 300px;
+    border-radius: 6px;
+  }
+
+  #container {
+    margin: 50px;
+    position: absolute;
+    display: inline-block;
+    width: fit-content;
+  }
+
+.product {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+    border-style: none;
+    width: 300px;
+    height: 600px;
+    border-radius: 6px;
+    
+}
+
+
+
+.newsticker {
+    background-color: rgb(0, 128, 64);
+    position: relative;
+    border-radius: 45px;
+    width: 60px;
+    height: 60px;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    display: inline-block;
+    top: 10px;
+    right: 85px;
+
+}
+.salesticker {
+    background-color: rgb(180, 47, 44);
+    position: relative;
+    
+    border-radius: 45px;
+    width: 60px;
+    height: 60px;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    float: right;
+    display: inline-block;
+    top: 10px;
+    right: 4px;
+
+}
+#pic1 {
+    height: 400px;
+    background-image: url(image1.png);
+    background-size: cover;
+    border-radius: 6px;
+}
+#pic2 { height: 400px;
+    background-image: url(image2.png);
+    background-size: cover;
+    border-radius: 6px;
+
+}
+#pic3
+{
+    height: 400px;
+    background-image: url(image3.png);
+    background-size: cover;
+    border-radius: 6px;
+
+}
+#pic4
+{
+    height: 400px;
+    background-image: url(image4.png);
+    background-size: cover;
+    border-radius: 6px;
+}
+
+.sale { 
+    color: rgb(0, 148, 65);
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+.pprice {
+    color: gray;
+    font-size: 15px;
+    text-decoration: line-through;
+    font-weight: normal;
+}
+
+button {
+    border: 1px solid rgb(214, 210, 210);
+    padding: 15px 25px;
+    color: gray;
+    border-radius: 4px;
+    margin: 15px;
+    background-color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.product:hover {
+    box-shadow: 0px 0px 8px  rgb(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: rgb(0, 148, 65);
+    color: white;
+    border-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
