@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#container1 {
+   
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+}
+
+#orange {
+    height: 40px;
+    width: 40px;
+    margin:2px;
+    background-color: orange;
+}
+
+#beige {
+    height: 40px;
+    width: 40px;
+    margin:2px;
+    background-color: beige;
+}
+
+#brown {
+    height: 40px;
+    width: 40px;
+    margin:2px;
+    background-color: brown;
+}

@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Exercise 1 */
+
+#container {
+    height: 300px;
+    width: 500px;
+    border: 2px solid rgb(128, 47, 0);
+    margin: 20px;
+    display: flex;
+/* flex-direction: row (default)
+                   column
+                   row/column-reverse */
+flex-direction: column;
+
+/* justify-content: flex-start (default)
+                    center
+                    flex-end
+                    space-around (equals space around each element)
+                    space-evenly */
+justify-content: center;
+align-items: center;
+
+}
+
+.child {
+width: 450px;
+height: 70px;
+background-color: rgb(42, 165, 161);
+margin: 5px;
+color: white;
+font: 4em sans-serif;
+text-align: center;
+
+
+}
+
+.child2 {
+    width: 250px;
+height: 100px;
+background-color: rgb(42, 165, 161);
+margin: 5px;
+color: white;
+font: 4em sans-serif;
+text-align: center;
+
+}
+
+/* Exercise 2 */
+
+#container2 {
+    height: 300px;
+    width: 500px;
+    border: 2px solid rgb(128, 47, 0);
+    margin: 20px;
+    display: flex;
+/* flex-direction: row (default)
+                   column
+                   row/column-reverse */
+flex-direction: column;
+
+/* justify-content: flex-start (default)
+                    center
+                    flex-end
+                    space-around (equals space around each element)
+                    space-evenly */
+justify-content: center;
+align-items: center;
+
+
+}
+
+.child3 {
+    width: 490px;
+    height: 100px;
+    background-color: rgb(42, 165, 161);
+    margin: 5px;
+    color: white;
+    font: 4em sans-serif;
+    text-align: center;
+    
+    
+    }
+    
+    .child4 {
+        width: 150px;
+    height: 100px;
+    background-color: rgb(42, 165, 161);
+    margin: 5px;
+    color: white;
+    font: 4em sans-serif;
+    text-align: center;
+    align-self:flex-end;
+
+    
+    }
+
+    /* Exercise 3 */
+
+#container3 {
+    height: 100px;
+    width: 510px;
+    border: 2px solid rgb(128, 47, 0);
+    margin: 20px;
+    display: flex;
+/* flex-direction: row (default)
+                   column
+                   row/column-reverse */
+
+/* justify-content: flex-start (default)
+                    center
+                    flex-end
+                    space-around (equals space around each element)
+                    space-evenly */
+justify-content: center;
+align-items: center;
+
+
+}
+
+.child5 {
+    width: 100px;
+    height: 40px;
+    background-color: rgb(42, 95, 165);
+
+    color: white;
+    font: 2em sans-serif;
+    text-align: center;
+    
+    
+    }
+    
+    .child6 {
+        width: 200px;
+    height: 40px;
+    background-color: rgb(165, 120, 42);
+  
+    color: white;
+    font: 2em sans-serif;
+    text-align: center;
+    }
+   
+    .child7{
+        width: 200px;
+    height: 40px;
+    background-color: rgb(42, 165, 161);
+  
+    color: white;
+    font: 2em sans-serif;
+    text-align: center;
+    
+    }
