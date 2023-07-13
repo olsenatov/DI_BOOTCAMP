@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+    
+
+
+
+
+#me { 
+    width: 30%;
+    border-radius: 30px;
+    border: 3px solid rgb(183, 169, 201);
+    box-shadow: 1px 2px 3px rgba(75, 51, 108, 0.4) ;
+
+}
+#aboutme {
+    /* width: 40%; */
+ 
+
+}
+
+
+#contactbut {
+    background-color: rgb(183, 169, 201);
+border: 2px solid  rgba(169, 156, 188);
+font-weight: bold;
+text-transform: uppercase;
+margin-right: 5px;
+box-shadow: 1px 2px 3px rgba(75, 51, 108, 0.4) ;
+}
+
+svg {
+    color: rgb(220, 220, 220); 
+    
+    margin: 5px;
+    
+
+}
+
+#contactbut:hover{
+    background-color: rgb(177, 176, 179);
+    border: 2px solid  rgb(152, 151, 152);
+
+}
+
+svg:hover {
+    color: rgb(183, 169, 201);
+}
+
+.container1 {
+    height: 20%;
+    display:flex;
+    justify-content: space-around;
+
+}
