@@ -6,7 +6,7 @@ body {
 .navbar-collapse {
     justify-content: flex-end;
 }
-    
+
 
 
 
@@ -60,17 +60,16 @@ svg:hover {
     margin:10px;
     box-shadow: 1px 2px 3px rgba(75, 51, 108, 0.4) ;
 }
-
+.card:hover {
+    box-shadow: 1px 2px 3px rgba(75, 51, 108, 0.4) ;
+}
 .row {
     margin: 20px;
-    font-size: 2vw;
+    font-size: 1vw;
     color: rgb(220, 220, 220); 
 }
 
-.col-7:hover {
+.col-6:hover {
     color: rgb(183, 169, 201);
 }
 
-.col-5:hover {
-    color: rgb(183, 169, 201);
-}
