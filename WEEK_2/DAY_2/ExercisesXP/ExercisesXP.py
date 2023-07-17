@@ -120,17 +120,17 @@
 
 #Exercise_9
 
-#prices
+#Family prices
+
 # tp_under_3 = 0
 # tp_3_12 = 10
 # tp_over_12 = 15
 
-# # Ask ages
 # fam_size = int(input("Enter the number of family members:" ))
 # total_price = 0
 
 # for i in range(fam_size):
-#     age = int(input("Enter the age of family member {}: ".format(i+1))) 
+#     age = int(input(f"Enter the age of family member {i+1}: ")) 
 
 #     if age < 3:
 #         ticket_cost = tp_under_3
@@ -143,15 +143,16 @@
 
 # print("Total cost for the family: $", total_price)
 
-# Teenagers Movie Restrictions
+# Movie Restrictions
+
 # age_restriction_min = 16
 # age_restriction_max = 21
 
-# teenagers = ["John", "Emma", "Michael", "Sophia"]
+# teenagers = ["John", "Carla", "Mike", "Ella"]
 
 # teenagers_allowed = []
 # for teen in teenagers:
-#     age = int(input("Enter the age of {}: ".format(teen))) 
+#     age = int(input(f"Enter the age of {teen}: ")) 
 #     if age >= age_restriction_min and age <= age_restriction_max:
 #         teenagers_allowed.append(teen)
         
@@ -161,24 +162,24 @@
 
 #Exercise_10
 
-sandwich_orders = ["Tuna sandwich", 
-                   "Pastrami sandwich", 
-                   "Avocado sandwich", 
-                   "Pastrami sandwich", 
-                   "Egg sandwich", 
-                   "Chicken sandwich", 
-                   "Pastrami sandwich"]
+# sandwich_orders = ["Tuna sandwich", 
+#                    "Pastrami sandwich", 
+#                    "Avocado sandwich", 
+#                    "Pastrami sandwich", 
+#                    "Egg sandwich", 
+#                    "Chicken sandwich", 
+#                    "Pastrami sandwich"]
 
-print("Deli has run out of Pastrami.\n")
+# print("Deli has run out of Pastrami.\n")
 
-finished_sandwiches = [] 
+# finished_sandwiches = [] 
   
-while "Pastrami sandwich" in sandwich_orders:
-    sandwich_orders.remove("Pastrami sandwich")
-print("Preparing other sandwiches from the order")
+# while "Pastrami sandwich" in sandwich_orders:
+#     sandwich_orders.remove("Pastrami sandwich")
+# print("Preparing other sandwiches from the order")
  
-while sandwich_orders:
-    sandwich = sandwich_orders.pop(0)
-    finished_sandwiches.append(sandwich)
-    print("I made your", sandwich)
+# while sandwich_orders:
+#     sandwich = sandwich_orders.pop(0)
+#     finished_sandwiches.append(sandwich)
+#     print("I made your", sandwich)
  
