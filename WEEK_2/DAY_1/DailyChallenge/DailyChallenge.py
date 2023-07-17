@@ -20,6 +20,8 @@ else:
 print("First character is", sentence[0], "Last character is", sentence[-1])
 
 new_string = ""
+char = "4"
+
 for char in sentence:
     new_string += char
     print(new_string)
