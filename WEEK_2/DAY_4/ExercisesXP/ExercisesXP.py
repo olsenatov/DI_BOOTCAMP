@@ -78,94 +78,94 @@
 
 #Exercise_7
 
-# from random import randint
+from random import randint
 
-# def get_random_temp(season):
+def get_random_temp(season):
     
-#     if season == "Winter":
-#      random_temp = randint(-10, 5)   
-#     elif season == "Spring":
-#      random_temp = randint(10, 24) 
-#     elif season == "Summer":
-#      random_temp = randint(25, 40)
-#     elif season == "Fall":
-#      random_temp = randint(6, 14)
-#     return random_temp    
+    if season == "Winter":
+     random_temp = randint(-10, 5)   
+    elif season == "Spring":
+     random_temp = randint(10, 24) 
+    elif season == "Summer":
+     random_temp = randint(25, 40)
+    elif season == "Fall":
+     random_temp = randint(6, 14)
+    return random_temp    
        
 
-# user_season = input("please, write a season from the following - Spring, Summer, Fall, Winter: ")    
+user_season = input("please, write a season from the following - Spring, Summer, Fall, Winter: ")    
 
-# def main():
-#     temperature = get_random_temp(user_season)
-#     print(f"The temperature now is {temperature} degrees Celcius")
-#     if temperature < 0:
-#         print("Brrr, that’s freezing! Wear some extra layers today")
-#     elif temperature < 16:
-#         print("Quite chilly! Don’t forget your coat") 
-#     elif temperature < 23:
-#         print("Nice Weather, enjoy! ") 
-#     elif temperature < 32:
-#         print("Let's go to the beach! ") 
-#     elif temperature < 40:
-#         print("Better hug your AC at home! ") 
+def main():
+    temperature = get_random_temp(user_season)
+    print(f"The temperature now is {temperature} degrees Celcius")
+    if temperature < 0:
+        print("Brrr, that’s freezing! Wear some extra layers today")
+    elif temperature < 16:
+        print("Quite chilly! Don’t forget your coat") 
+    elif temperature < 23:
+        print("Nice Weather, enjoy! ") 
+    elif temperature < 32:
+        print("Let's go to the beach! ") 
+    elif temperature < 40:
+        print("Better hug your AC at home! ") 
         
      
-# main()
+main()
 
 #Exercise_8
 
-data = [
-    {
-        "question": "What is Baby Yoda's real name?",
-        "answer": "Grogu"
-    },
-    {
-        "question": "Where did Obi-Wan take Luke after his birth?",
-        "answer": "Tatooine"
-    },
-    {
-        "question": "What year did the first Star Wars movie come out?",
-        "answer": "1977"
-    },
-    {
-        "question": "Who built C-3PO?",
-        "answer": "Anakin Skywalker"
-    },
-    {
-        "question": "Anakin Skywalker grew up to be who?",
-        "answer": "Darth Vader"
-    },
-    {
-        "question": "What species is Chewbacca?",
-        "answer": "Wookiee"
-    }
-]
+# data = [
+#     {
+#         "question": "What is Baby Yoda's real name?",
+#         "answer": "Grogu"
+#     },
+#     {
+#         "question": "Where did Obi-Wan take Luke after his birth?",
+#         "answer": "Tatooine"
+#     },
+#     {
+#         "question": "What year did the first Star Wars movie come out?",
+#         "answer": "1977"
+#     },
+#     {
+#         "question": "Who built C-3PO?",
+#         "answer": "Anakin Skywalker"
+#     },
+#     {
+#         "question": "Anakin Skywalker grew up to be who?",
+#         "answer": "Darth Vader"
+#     },
+#     {
+#         "question": "What species is Chewbacca?",
+#         "answer": "Wookiee"
+#     }
+# ]
 
-def questions(data):
-    correct = 0
-    wrong = []
+# def questions(data):
+#     correct = 0
+#     wrong = []
     
-    for item in data:
-        question = item["question"]
-        answer = item["answer"]
+#     for item in data:
+#         question = item["question"]
+#         answer = item["answer"]
         
-        user_answer = input(question +"Your answer is: ")
+#         user_answer = input(question +"Your answer is: ")
         
-        if user_answer == answer:
-            print("Correct!")
-            correct += 1
-        else:
-            print(f"Incorrect, the answer is {answer}")
-            wrong.append({"question":"answer"})
-    return correct, wrong
+#         if user_answer == answer:
+#             print("Correct!")
+#             correct += 1
+#         else:
+#             print(f"Incorrect, the answer is {answer}")
+#             wrong.append({"question":"answer"})
+#     return correct, wrong
 
-def show_results(correct, wrong):
-    total_q = correct + len(wrong)
-    print(f"\n Results: You answered {correct} questions correctly out of {total_q}. \n")
+# def show_results(correct, wrong):
+#     total_q = correct + len(wrong)
+#     print(f"\n Results: You answered {correct} questions correctly out of {total_q}. \n")
     
         
-def main ():
-    correct, wrong = questions(data)
-    show_results(correct, wrong)
+# def main ():
+#     correct, wrong = questions(data)
+#     show_results(correct, wrong)
     
-main()
+# main()
