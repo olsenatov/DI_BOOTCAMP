@@ -34,6 +34,46 @@ def player_input(player):
            else: print("invalid. or cell is occupied. try again")
         else:
             print("please, enter a valid number")
-            
 
-            
+#winner/tie checking function
+def check_win():
+    for player in [1,2]:
+        #horizontal/vertical
+        for i in range(3):
+            if board[i][0] == board[i][1] == board[i][2] == player or board[0][i] == board[1][i] == board[2][i] == player:
+                return player
+        #diagonals
+        if board[0][0] == board[1][1] == board[2][2] == player or board[0][2] == board[1][1] == board[2][0] == player:
+            return player
+        #tie
+        if all(board[i][j] != 0 for i in range(3) for j in range(3)):
+            return "Tie"
+    return None
+
+#play function
+def play():
+    print("tic tac toe")
+    display_board()
+    game = True
+    turn = 1
+    
+    while game:
+        if turn % 2 == 0:
+            player = "O's"
+        else:
+            player = "X's"
+        
+        player_input(player)
+        display_board()
+        
+        result = check_win()
+        if result:
+            if result == "Tie":
+               print("It's a Tie!")
+            else:
+               print(f"Player {result} wins!")
+            game = False
+        
+        turn +=1
+        
+play()
