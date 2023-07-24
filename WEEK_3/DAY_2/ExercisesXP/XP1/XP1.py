@@ -83,15 +83,14 @@ print(f"{dog1.name} runs at speed {dog1.run_speed()} km/h")
 print(f"{dog2.name} runs at speed {dog2.run_speed()} km/h")
 print(f"{dog3.name} runs at speed {dog3.run_speed()} km/h")
 
-# somehow after each line of score further on it prints also NONE 
-# i tried to solve it, but spent too much time and decided to move on, could you explain me, please?
+
 print(dog2.fight(dog3))
 print(dog1.fight(dog3))
 print(dog1.fight(dog2))
 
 
 #Exercise_3
-
+#see in XP1_imported.py
 
 
 
