@@ -164,3 +164,50 @@
 #         return base * exponent(base, exp - 1)
     
 # print(exponent(2, 3))
+
+
+# O(logn) - good complexity
+#BINARY SEARCH
+
+#Condition #1 - Sorted array/list is needed
+#Condition # 1 - value to compare with is needed
+
+# sorted_array = list(range(1000))
+# value_to_search = 50
+
+# right = len(sorted_array)
+# left = 0 
+
+# middle = sorted_array[len(sorted_array) // 2]
+
+# def binary_search(array, value_to_search):
+#     middle = array[len(array)//2]
+#     right = len(array)
+#     left = 0
+#     iteration = 0
+    
+#     while True:
+#         iteration += 1
+      
+#         if middle == value_to_search:
+#             print(f"FOUND REQUESTED # - {value_to_search}")
+#             print(f"Iterations:", iteration)
+#             break
+    
+#         elif middle < value_to_search:
+#             left = middle
+#             middle = (left + right) // 2
+#         elif middle > value_to_search:
+#             right = middle
+#             middle = (left + right) // 2
+#         else:
+            # print("no such #")
+
+#recursively?
+
+
+# O(nlogn) worse than O(n) better than O(n^2)
+# QUICK SORT algorithm
+
+#DEVIDE AND CONQURE algorithm 
+
