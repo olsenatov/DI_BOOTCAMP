@@ -32,6 +32,8 @@ counter = 0
 flicker = False
 
 valid_turns = [False, False, False, False] # can I go right/left/up/down now?
+direction_command = 0
+player_speed = 2
 
 
 #draw_board
@@ -88,19 +90,71 @@ def check_position(centerX, centerY):
     num3 = 15
     #check colliding based on XY of player + Num so not to enter the wall
     if centerX // 30 < 29:
+        
         if direction == 0:
-            if level[centerX // num1][(centerY - num3) // num2 ] < 3:
+            if level[centerY // num1][(centerX - num3) // num2 ] < 3:
               turns[1] = True  
         if direction == 1:
+            if level[centerY // num1][(centerX + num3) // num2 ] < 3:
+              turns[0] = True  
         
         if direction == 2:
+            if level[centerY + num3// num1][centerX // num2 ] < 3:
+              turns[3] = True  
             
         if direction == 3:
+            if level[centerY - num3 // num1][centerX // num2 ] < 3:
+              turns[2] = True  
+        
+        #moving on up and down
+        if direction == 2 or direction == 3:
+            
+            if 12 <= centerX % num2 <= 18:
+                if level[centerY + num3// num1][centerX // num2 ] < 3:
+                    turns[3] = True
+                if level[centerY - num3// num1][centerX // num2 ] < 3:
+                    turns[2] = True
+            
+            if 12 <= centerY % num2 <= 18:
+                if level[centerY + num3// num1][(centerX - num2)// num2 ] < 3:
+                    turns[1] = True
+                if level[centerY - num3// num1][(centerX + num2)// num2 ] < 3:
+                    turns[0] = True   
+        
+        #moving left and right            
+        if direction == 0 or direction == 1: 
+            
+            if 12 <= centerX % num2 <= 18:
+                if level[centerY + num1// num1][centerX // num2 ] < 3:
+                    turns[3] = True
+                if level[centerY - num1// num1][centerX // num2 ] < 3:
+                    turns[2] = True
+            
+            if 12 <= centerX % num2 <= 18:
+                if level[centerY + num1// num1][(centerX - num2)// num2 ] < 3:
+                    turns[1] = True
+                if level[centerY - num1// num1][(centerX + num2)// num2 ] < 3:
+                    turns[0] = True  
+            
     else:
         turns[0] = True
         turns[1] = True
         
     return turns  
+
+def move_player(play_x, play_y):
+    # right, left, up, down
+    if direction == 0 and valid_turns[0]:
+        play_x += player_speed
+    elif direction == 1 and valid_turns[1]:
+        play_x -= player_speed
+    elif direction == 2 and valid_turns[2]:
+        play_y -= player_speed
+    elif direction == 0 and valid_turns[3]:
+        play_y += player_speed
+    
+    return play_x, play_y
+
 
 
 #game running and functions collection
@@ -125,6 +179,7 @@ while run:
     center_x = player_x + 23
     center_y = player_y + 24
     valid_turns = check_position(center_x, center_y)
+    player_x, player_y = move_player(player_x, player_y)
     
     
    
@@ -137,14 +192,39 @@ while run:
         #pressed keys for the directions 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
-                direction = 0
+                direction_command = 0
             if event.key == pygame.K_LEFT:
-                direction = 1
+                direction_command = 1
             if event.key == pygame.K_UP:
-                direction = 2
+                direction_command = 2
             if event.key == pygame.K_DOWN:
+                direction_command = 3
+           #if i was trying to go this way originally and no longer need = override with direction_command     
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_RIGHT and direction_command == 0:
+                direction_command = 0
+            if event.key == pygame.K_LEFT and direction_command == 1:
+                direction_command = 1
+            if event.key == pygame.K_UP and direction_command == 2:
+                direction_command = 2
+            if event.key == pygame.K_DOWN and direction_command == 3:
+                direction_command = 3
+        
+        
+    if direction_command == 0 and valid_turns[0]:
+                direction = 0
+    if direction_command == 1 and valid_turns[1]:
+                direction = 1
+    if direction_command == 2 and valid_turns[2]:
+                direction = 2
+    if direction_command == 3 and valid_turns[3]:
                 direction = 3
                 
+    if player_x > 900:
+            player_x = -47
+    elif player_x < -50:
+            player_x = 897
+            
             
         
     pygame.display.flip()
