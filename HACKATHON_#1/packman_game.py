@@ -38,15 +38,21 @@ player_speed = 2
 score = 0
 
 
-def check_collisions(score_p):
-    num1 = SCREENHEIGHT - 50 // 32
+def eating_score(score_p):
+    num1 = (SCREENHEIGHT - 50) // 32
     num2 = SCREENWIDTH // 30
     if 0 < player_x < 870:
         if level[center_y // num1 ][center_x // num2] == 1:
-               level[center_y // num1 ][center_x // num2] == 0
+               level[center_y // num1 ][center_x // num2] = 0
                score_p += 10 
+        if level[center_y // num1 ][center_x // num2] == 2:
+               level[center_y // num1 ][center_x // num2] = 0
+               score_p += 10            
     return score_p
-        
+
+def draw_other():
+    score_text = font.render(f"Score: {score}", True, 'white')
+    screen.blit(score_text, (10, 920))
     
 #draw_board
 def draw_board():
@@ -176,6 +182,7 @@ while run:
     screen.fill("black")
     
     draw_board()
+    draw_other()
     center_x = player_x + 23
     center_y = player_y + 24
     draw_player()
@@ -185,7 +192,7 @@ while run:
     
     player_x, player_y = move_player(player_x, player_y)
         
-    score = check_collisions(score)
+    score = eating_score(score)
     
     for event in pygame.event.get():
         #red X key
