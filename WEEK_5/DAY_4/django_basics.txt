@@ -1,0 +1,134 @@
+django used for builind web applications
+
+authetications
+security management
+database interactiom
+data passing in between parts
+
+Client = user
+Server = the backend/logic
+
+Django (hard to integrate React)
+Django REST - API part of Django (better for strong UX)
+
+1. Install 
+
+2. Start a new web app (new project)
+for terminal in the needed folder: 
+django-admin startproject mysite_top
+
+NEVER USE mysite FOLDER
+
+
+3. Creating a new app
+ python3 manage.py startapp polls
+
+ mysite_top --> polls --> views.py is the place where you define the logic
+
+4. Creating views
+    Basic View Template
+    def some_view(request)
+
+    and put the name of the app to the mysite --> settings.py
+    then go to mysite ----> urls.py --- import name of app from polls.
+    then mysite ---> urls -- write in urlpatterns path('index/', index, name='index')
+
+5. Connecting Database
+through polls---views in models.py
+settings
+databases - establish connection
+python3 manage.py migrate
+(pip3 install psycopg2-binary )
+
+6. Create admin
+
+python3 manage.py createsuperuser
+
+7. create tables inside polls --> models.py
+
+8. Create a migration - instruction for the database about changes(adding a table, changing a column)
+python3 manage.py makemigrations
+python3 manage.py migrate -- like git push
+
+
+___________
+
+DJANGO SHELL
+
+python3 manage.py shell
+
+#import
+from polls.models import Post
+
+In [2]: new_post = Post(author='Ben', title='First Post', text='Some text here....')
+
+In [3]: new_post
+Out[3]: <Post: Post object (None)> #not saved
+
+#save
+In [4]: new_post.save() 
+
+In [5]: new_post
+Out[5]: <Post: Post object (1)> #recieved an id of 1
+
+
+to .get the post:
+In [14]: post1 = Post.objects.get(id=1)
+
+In [15]: post1
+Out[15]: <Post: Post object (1)>
+
+see inside 1 object and it's specs object.
+In [16]: post1.text
+Out[16]: 'Some text here....'
+
+Update
+In [17]: post1.text = 'Updated new text'
+post1.save()
+
+see everything .all as a query set
+In [21]: all_posts = Post.objects.all()
+
+In [22]: all_posts
+Out[22]: <QuerySet [<Post: Post object (2)>, <Post: Post object (3)>, <Post: Post object (1)>]>
+
+.order_by('') and get a query set 
+In [23]: all_posts.order_by('author')
+Out[23]: <QuerySet [<Post: Post object (3)>, <Post: Post object (1)>, <Post: Post object (2)>]>
+
+.filter(smth='') by and get a query set
+In [24]: all_posts.filter(author='Ben')
+Out[24]: <QuerySet [<Post: Post object (3)>, <Post: Post object (1)>]>
+
+control c 
+exit() shell
+____________
+
+to add an app to the admins 
+polls -- admin.py
+from .models import Post
+
+# Register your models here.
+admin.site.register(Post)
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+to create a virtual environment so not to affect the base one
+install new
+python3 -m venv my_django_venv
+activate 
+source my_django_venv/bin/activate
+
+1. never ever touch the VENV folder
+2. never push the VENV folder to github 
+   use .gitignore (create .gitignore and put inside text --- my_django_venv/)
+
+step into VENV
+(windows) venv/Scripts/activate   or venv/Scripts/activate.bat   or venv/Scripts/activate.ps1
+(mac)use zsh and type:  source venv/bin/activate
+
+
+you have to create requirements.txt explaining what is needed in which version to work in the future
+pip freeze > requirements.txt (run every time update or something new is installed)
+requirements.txt can be pushed into github
+
+to exit venv - deactivate

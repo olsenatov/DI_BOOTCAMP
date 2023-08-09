@@ -8,3 +8,4 @@
 SELECT * from pacman
 
 -- drop table pacman
+
