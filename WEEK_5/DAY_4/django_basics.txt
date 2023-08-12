@@ -132,3 +132,8 @@ pip freeze > requirements.txt (run every time update or something new is install
 requirements.txt can be pushed into github
 
 to exit venv - deactivate
+
+
+
+____________________________________
+
