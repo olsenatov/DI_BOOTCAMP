@@ -50,7 +50,7 @@ python3 manage.py createsuperuser
 python3 manage.py makemigrations
 python3 manage.py migrate -- like git push
 
-python manage.py runserver
+python3 manage.py runserver
 ___________
 
 DJANGO SHELL
@@ -135,5 +135,16 @@ to exit venv - deactivate
 
 
 
-____________________________________
+#USER Creation --- shell
 
+from django.contrib.auth.models import User
+In [8]: from django.contrib.auth import authenticate
+
+In [9]: from django.contrib.auth import login
+
+In [10]: from django.contrib.auth import logout
+In [13]: authenticate(username='Ben', password='12345678!')
+Out[13]: <User: Ben>
+
+In [11]: authenticate(username='j', password='asasdas123') 
+Out - nothing(doesn't exist)
