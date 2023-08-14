@@ -1,0 +1,10 @@
+REST - Representational State Transfer
+API - Aplication Interface
+
+Rest is using series realiser in order to transfer the model (translate) into JSON
+and JSON is sending it into API
+API is used to 
+1. create some kind of floating database, sharing data
+2. Front end framework connection
+
+converts Post(title = '1stpost') to {title:1stpost}
