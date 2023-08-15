@@ -1,5 +1,5 @@
 """
-URL configuration for weather_report project.
+URL configuration for employees project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,11 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from weatherapp.views import ReportView
+from emp_dep.views import DepartmentAPIView, EmployeeAPIView, ProjectAPIView, TaskAPIView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/reports/', ReportView.as_view(), name = 'reports'),
-    path('api/reports/<int:pk>', ReportView.as_view(), name = 'reports'),
+    path('api/departments/', DepartmentAPIView.as_view(), name='department-operations'),
+    path('api/employees/', EmployeeAPIView.as_view(), name='employee-operations'),
+    path('api/projects/', ProjectAPIView.as_view(), name='project-operations'),
+    path('api/tasks/', TaskAPIView.as_view(), name='task-operations'),
 ]

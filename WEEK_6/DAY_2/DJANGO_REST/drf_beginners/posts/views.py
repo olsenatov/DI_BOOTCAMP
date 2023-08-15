@@ -7,8 +7,10 @@ from django.http import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser, IsAuthenticatedOrReadOnly 
-                                        
-
+from .permissions import IsAuthenticatedAndAdmin                                        
+# AllowAny,  access for anyone
+# IsAuthenticated, for logged in
+# IsAdminUser only admins
 
 # Create your views here.
 
@@ -46,7 +48,7 @@ def post_view(request):
 
 class PostView(APIView):
     
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = (IsAuthenticatedAndAdmin,)
     
     def get(self, request, *args, **kwargs ):
         posts = Post.objects.all()
