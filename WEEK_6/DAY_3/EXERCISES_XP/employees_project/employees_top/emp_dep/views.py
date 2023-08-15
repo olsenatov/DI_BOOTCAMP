@@ -1,10 +1,12 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from .permissions import IsDepartmentAdmin
 from .models import Department, Employee, Project, Task
 from .serializers import DepartmentSerializer, EmployeeSerializer, ProjectSerializer, TaskSerializer
 
 class DepartmentAPIView(APIView):
+    permission_classes = [IsDepartmentAdmin]
     def get(self, request, pk=None):
         if pk:
             department = Department.objects.get(pk=pk)
@@ -35,6 +37,7 @@ class DepartmentAPIView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class EmployeeAPIView(APIView):
+    permission_classes = [IsDepartmentAdmin]
     def get(self, request, pk=None):
         if pk:
             employee = Employee.objects.get(pk=pk)
@@ -65,6 +68,7 @@ class EmployeeAPIView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class ProjectAPIView(APIView):
+    permission_classes = [IsDepartmentAdmin]
     def get(self, request, pk=None):
         if pk:
             project = Project.objects.get(pk=pk)
@@ -95,6 +99,7 @@ class ProjectAPIView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class TaskAPIView(APIView):
+    permission_classes = [IsDepartmentAdmin]
     def get(self, request, pk=None):
         if pk:
             task = Task.objects.get(pk=pk)
