@@ -176,7 +176,7 @@
 # plt.title('Histogram of Column A')
 # plt.show()
 
-#for columns:
+##for columns:
 # plt.figure(figsize=(10, 6)) 
 # plt.plot(df['A'], label='Column A')
 # plt.plot(df['B'], label='Column B')
