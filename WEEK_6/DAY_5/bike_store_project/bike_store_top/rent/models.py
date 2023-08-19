@@ -1,12 +1,13 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Customer(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     email = models.EmailField(unique=True)
-    phone_number = models.CharField(max_length=15)
+    phone_number = models.CharField()
     address = models.ForeignKey('Address', on_delete=models.CASCADE)
 
 class Vehicle(models.Model):
@@ -32,28 +33,19 @@ class Rental_Rate(models.Model):
     vehicle_type = models.ForeignKey('Vehicle_Type', on_delete=models.CASCADE)
     vehicle_size = models.ForeignKey('Vehicle_Size', on_delete=models.CASCADE)
 
-class Rantal_Station(models.Model):
+class Rental_Station(models.Model):
     name = models.CharField(max_length=100)
     capacity = models.IntegerField()
-    address = 
-    
+    address = models.ForeignKey('Address', on_delete=models.CASCADE)   
 
-RentalStation:
+class Address(models.Model):
+    address = models.CharField(max_length=100)
+    address2 = models.CharField(max_length=100, null=True, blank = True)
+    city = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+    postal_code = models.CharField(max_length=10)
 
-name: CharField (max_length=100)
-capacity: IntegerField
-address: ForeignKey to Address
-
-Address:
-
-address: CharField (max_length=100)
-address2: CharField (max_length=100, null=True, blank=True)
-city: CharField (max_length=50)
-country: CharField (max_length=50)
-postal_code: CharField (max_length=10)
-
-VehicleAtRentalStation:
-
-arrival_date: DateField
-departure_date: DateField (null=True, blank=True)
-vehicle: ForeignKey to Vehicle
+class VehicleAtRentalStation(models.Model):
+    arrival_date = models.DateField()
+    departure_date = models.DateField(null=True, blank=True)
+    vehicle = models.ForeignKey('Vehicle', on_delete=models.CASCADE)
