@@ -3,13 +3,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.db.models import Count
-# from .permissions import IsDepartmentAdmin
+from datetime import datetime
+from django.db.models.functions import TruncMonth
 from .models import Rental, Customer, Vehicle, Rental_Station, VehicleAtRentalStation
 from .serializers import RentalSerializer, CustomerSerializer, VehicleSerializer, RentalStationSerializer
 
 # Create your views here. 
 class RentalAPIView(APIView):
-    # permission_classes = [IsDepartmentAdmin]
+   
     def get(self, request, pk=None):
         if pk:
             rental = Rental.objects.get(pk=pk)
@@ -139,4 +140,46 @@ class VehicleDistributeAPIView(APIView):
                 vehicle.save()
         return Response({"message": "Vehicles distributed successfully"})
     
- 
+#### daily challenge day5
+class MonthlyRentalStatsAPIView(APIView):
+    def get(self, request):
+        rental_stats = Rental.objects.annotate(month=TruncMonth('rental_date')) \
+            .values('month') \
+            .annotate(rental_count=Count('id')) \
+            .order_by('month')
+
+        monthly_stats = {}
+        for entry in rental_stats:
+            month_year = entry['month'].strftime('%Y-%m')
+            rental_count = entry['rental_count']
+            monthly_stats[month_year] = rental_count
+
+        return Response(monthly_stats)
+    
+class PopularRentalStationAPIView(APIView):
+    def get(self, request):
+        rental_station_stats = Rental_Station.objects.annotate(rental_count=Count('rentals')) \
+            .values('name', 'rental_count') \
+            .order_by('-rental_count')
+
+        popular_station_stats = {}
+        for entry in rental_station_stats:
+            station_name = entry['name']
+            rental_count = entry['rental_count']
+            popular_station_stats[station_name] = rental_count
+
+        return Response(popular_station_stats)
+    
+class PopularVehicleTypeAPIView(APIView):
+    def get(self, request):
+        vehicle_type_stats = Vehicle.objects.values('vehicle_type') \
+            .annotate(rental_count=Count('rentals')) \
+            .order_by('-rental_count')
+
+        popular_vehicle_type_stats = {}
+        for entry in vehicle_type_stats:
+            vehicle_type = entry['vehicle_type']
+            rental_count = entry['rental_count']
+            popular_vehicle_type_stats[vehicle_type] = rental_count
+
+        return Response(popular_vehicle_type_stats)

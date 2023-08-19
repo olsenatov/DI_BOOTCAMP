@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rent.views import RentalAPIView, CustomerAPIView, VehicleAPIView, RentalStationAPIView, RentalStationDetailAPIView, VehicleDistributeAPIView
+from rent.views import RentalAPIView, CustomerAPIView, VehicleAPIView, RentalStationAPIView, RentalStationDetailAPIView, VehicleDistributeAPIView, MonthlyRentalStatsAPIView, PopularRentalStationAPIView, PopularVehicleTypeAPIView
+
 
 
 urlpatterns = [
@@ -34,5 +35,9 @@ urlpatterns = [
     path('api/rent/station/<int:station_id>/', RentalStationDetailAPIView.as_view(), name='id_station'),
     path('api/rent/station/distribution/', VehicleDistributeAPIView, name='vehicle_distribution'), 
     path('api/rent/station/distribute/', VehicleDistributeAPIView.as_view(), name='distribute_vehicles'),
+    ### daily challenge day 5
+    path('api/stats/monthly/', MonthlyRentalStatsAPIView.as_view(), name='stats_per_month'),
+    path('rent/stats/popular_station/', PopularRentalStationAPIView.as_view(), name='popular_rental')
+    path('rent/stats/popular_vehicle_type/', PopularVehicleTypeAPIView.as_view(), name='popular_vehicle_tyoe'), 
    
 ]
