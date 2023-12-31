@@ -1,38 +1,50 @@
-// Exercise 3 : Change The Navbar
-// Instructions
-// <div id="navBar">
-//     <ul>
-//         <li><a href="#">Profile</a></li>
-//         <li><a href="#">Home</a></li>
-//         <li><a href="#">My Friends</a></li>
-//         <li><a href="#">Messenger</a></li>
-//         <li><a href="#">My Pics</a></li>
-//     </ul>
-// </div>
-// Add the code above, to your HTML file
+// In your Javascript file add the functionality which will allow you to drag the box and drop it 
+//into the target. Check out the Course Notes named DOM animations.
 
-// Using Javascript, in the <div>, change the value of the id attribute from navBar to socialNetworkNavigation, using the setAttribute method.
-let navBar = document.getElementById('navBar');
-navBar.setAttribute('id', 'socialNetworkNavigation')
-console.log(navBar)
-// We are going to add a new <li> to the <ul>.
+document.addEventListener("DOMContentLoaded", function () {
+    const box = document.getElementById('box');
+    let toDrag = false;
+    let offsetX, offsetY;
 
-// First, create a new <li> tag (use the createElement method).
-// Create a new text node with “Logout” as its specified text.
-// Append the text node to the newly created list node (<li>).
-// Finally, append this updated list node to the unordered list (<ul>), using the appendChild method.
-let listTagLogout = document.createElement('li');
-let logoutTextNode = document.createTextNode('Logout');
-listTagLogout.appendChild(logoutTextNode);
-console.log(listTagLogout);
-ulMenu = document.querySelector('ul');
-ulMenu.appendChild(listTagLogout);
+    //mouse down
+    box.addEventListener('mousedown', function (e) {
+        const box = document.getElementById("box");
+        toDrag = true;
+        offsetX = e.clientX - box.getBoundingClientRect().left;
+        offsetY = e.clientY - box.getBoundingClientRect().top;
+        
+    });
 
-// Use the firstElementChild and the lastElementChild properties to retrieve the first and last <li> elements from their parent element (<ul>). 
-//Display the text of each link. (Hint: use the textContent property).
+    //move with mouse
+    document.addEventListener('mousemove', function(e) {
+        if (toDrag) {
+            box.style.left = e.clientX - offsetX + "px";
+            box.style.top = e.clientY - offsetY + "px"
+        }
+    });
 
-let firstLi = ulMenu.firstElementChild;
-let lastLi = ulMenu.lastElementChild;
+    //stop
+    document.addEventListener('mouseup', function () {
+        toDrag = false;
+    });
 
-console.log(`first link text: ${firstLi.textContent}`);
-console.log(`last link text: ${lastLi.textContent}`)
+    //target box
+    const target = document.getElementById('target');
+
+    // drop when box is in target box
+    target.addEventListener('drop', function (e) {
+        e.preventDefault();
+        const data = e.dataTransfer.getDataData('text');
+
+        if (data === 'box') {
+         target.style.background = 'green';
+
+        }
+    target.addEventListener('dragover', function (e) {
+        e.preventDefault();
+    })
+    })
+} )
+
+//also added attribute to box in html to be draggable
+// it's working, but not very smoothly, could you tell me why?

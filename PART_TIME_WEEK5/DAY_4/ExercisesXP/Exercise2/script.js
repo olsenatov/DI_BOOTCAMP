@@ -1,35 +1,24 @@
-// // Exercise 2
-// // Instructions
-// // <div>Users:</div>
-// // <ul>
-// //     <li>John</li>
-// //     <li>Pete</li>
-// // </ul>
-// // Add the code above, to your HTML file
+// In your Javascript file, use setInterval to move the <div id="animate"> to the right side of the <div id="container">, when the button is clicked on.
+// The <div id="animate"> should move 1px to the right every milisecond, until it reaches the end of the <div id="container">.
+// Hint : use clearInterval as soon as the box reaches the right end side of the container
+// Hint : check out the demonstration in the Course Noted named JS Functions
 
-// // Using Javascript:
-// // Add a “light blue” background color and some padding to the <div>.
-// let containerDiv = document.querySelector('div')
-// containerDiv.style.backgroundColor = 'lightblue';
-// containerDiv.style.padding = '20px'
+function myMove() {
+    const container = document.getElementById('container');
+    const animate = document.getElementById('animate');
+    
+    const containerWidth = container.offsetWidth;
+    const animateWidth = animate.offsetWidth;
 
-// // Do not display the <li> that contains the text node “John”. (the first <li> of the <ul>)
-// const noLiElement = document.querySelector('li:nth-child(1)')
-// noLiElement.style.display = 'none'
-// // Add a border to the <li> that contains the text node “Pete”. (the second <li> of the <ul>)
-// const borderLiElement = document.querySelector('li:nth-child(2)')
-// borderLiElement.style.border = '1px solid black'
-// // Change the font size of the whole body.
-// const fontBody = document.querySelector('body')
-// fontBody.style.fontSize = '30px'
-// // Bonus: If the background color of the div is “light blue”, alert “Hello x and y” (x and y are the users in the div).
-// const listItems = document.querySelectorAll('ul.list li');
-// const names = Array.from(listItems).map(li => li.textContent.trim());
+    let position = 0;
+    let interval = setInterval(frame, 1);
 
-// if (containerDiv.style.backgroundColor = 'lightblue') {
-   
-//     const [name1, name2] = names;
-//     alert(`Hello ${name1} and ${name2}`);
-// }
-
-//doesn't work, could not understand, what is a solution here - I get 'Hello undefined and undefined'
+    function frame() {
+        if( position >= containerWidth - animateWidth) {
+            clearInterval(interval);
+        } else {
+            position++;
+            animate.style.left = position + "px";
+        }
+    }
+}

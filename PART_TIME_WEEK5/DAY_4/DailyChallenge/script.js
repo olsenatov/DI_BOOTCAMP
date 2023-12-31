@@ -1,47 +1,10 @@
-let planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'];
+// Create an input type text that takes/shows only letters. (ie. numbers and special characters won’t be accepted)
 
-let solarSystem = document.querySelector('.listPlanets')
+// Hint: use one of the following events to remove any character that is not a letter
 
-let colors = {
-    'Mercury' : 'grey',
-    'Venus' : 'yellow',
-    'Earth': 'lightblue',
-    'Mars' : 'red',
-    'Jupiter' : 'orange',
-    'Saturn': 'brown',
-    'Uranus' : 'green',
-    'Neptune' : 'blue'
-}
+// keyup event
+// or keypress event
+// or keydown event
+// or input event
 
-//bonus
-let moons = {
-    'Mercury': [],
-    'Venus': [],
-    'Earth': ['Moon'],
-    'Mars': ['Phobos', 'Deimos'],
-    'Jupiter': ['Io', 'Europa', 'Ganymede', 'Callisto'],
-    'Saturn': ['Mimas', 'Enceladus', 'Tethys', 'Dione', 'Rhea', 'Titan', 'Iapetus'],
-    'Uranus': ['Miranda', 'Ariel', 'Umbriel', 'Titania', 'Oberon'],
-    'Neptune': ['Triton']
-};
-
-planets.forEach(planetName => {
-    let planetDiv = document.createElement('div')
-    planetDiv.className = 'planet'
-    planetDiv.textContent = planetName
-    planetDiv.style.backgroundColor = colors[planetName]
-    planetDiv.style.margin = '15px'
-
-    if (moons[planetName]) {
-        moons[planetName].forEach(moonName => {
-            let moonDiv = document.createElement('div');
-            moonDiv.className = 'moon';
-            moonDiv.textContent = moonName;
-
-            planetDiv.appendChild(moonDiv);
-        });
-    } //// couldn't understand how to make moons display outside, and also to be separate from each other
-    //// like in case of Saturns' moons - it's too many for one planet =/ but did what i could
-
-    solarSystem.appendChild(planetDiv);
-});
+// Hint : Check out keycodes in Javascript or Regular Expressions
