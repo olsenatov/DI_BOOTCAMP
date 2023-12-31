@@ -8,3 +8,11 @@
 // or input event
 
 // Hint : Check out keycodes in Javascript or Regular Expressions
+
+document.getElementById('letterInput').addEventListener('input', function(event) {
+    let inputValue = event.target.value;
+    let formattedValue = inputValue.replace(/[^A-Za-z]/g, '');
+    event.target.value = formattedValue;
+  });
+
+  //so input event it doesn't give you an option to input any other character at all
